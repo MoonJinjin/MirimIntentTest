@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             num1 = edit1.getText().toString();
             num2 = edit2.getText().toString();
-            Intent intent = new Intent();
+            Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
             intent.putExtra("num1", num1);
             intent.putExtra("num2", num2);
             startActivity(intent);
