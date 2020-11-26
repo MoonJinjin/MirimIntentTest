@@ -13,10 +13,8 @@ import android.widget.RadioGroup;
 public class MainActivity extends AppCompatActivity {
     EditText edit1, edit2;
     Button btnGo;
-    RadioGroup radio;
+    RadioGroup rg;
 
-    String num1, num2;
-    Integer result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,22 +22,20 @@ public class MainActivity extends AppCompatActivity {
         edit1 = findViewById(R.id.edit_num1);
         edit2 = findViewById(R.id.edit_num2);
         btnGo = findViewById(R.id.btn_go);
-        radio = findViewById(R.id.radio);
+        rg = findViewById(R.id.rg);
 
         btnGo.setOnClickListener(btnListener);
     }
     View.OnClickListener btnListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            num1 = edit1.getText().toString();
-            num2 = edit2.getText().toString();
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
-            intent.putExtra("num1", num1);
-            intent.putExtra("num2", num2);
+            intent.putExtra("num1", edit1.getText().toString());
+            intent.putExtra("num2", edit2.getText().toString());
 
             String op = "";
 
-            switch (radio.getCheckedRadioButtonId()) {
+            switch (rg.getCheckedRadioButtonId()) {
                 case R.id.radio_plus:
                     op = "+";
                     break;
